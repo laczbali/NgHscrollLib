@@ -1,3 +1,27 @@
-<div>
-    hscroll container works
+<div class="component-container">
+    <!-- Scroller - right -->
+    <div class="scroll-button" *ngIf="contentOverflow"
+        (click)="scroll('right')"
+        [class.scroll-button-disabled]="isScrollButtonDisabled('right')"
+        [class.scroll-button-active-right]="!isScrollButtonDisabled('right')">
+        <i class="fas fa-chevron-left"></i>
+    </div>
+
+    <!-- Content -->
+    <div class="scroll-container" #scrollContainer (cdkObserveContent)="onContentChange($event)">
+        <div class="scroller" #scroller>
+            <ng-content select="[ngHscrollItem]"></ng-content>
+        </div>
+    </div>
+
+    <!-- Scroller - left -->
+    <div class="scroll-button" *ngIf="contentOverflow"
+        (click)="scroll('left')"
+        [class.scroll-button-disabled]="isScrollButtonDisabled('left')"
+        [class.scroll-button-active-left]="!isScrollButtonDisabled('left')">
+        <i class="fas fa-chevron-right"></i>
+    </div>
+
+    <!-- Place of extra content -->
+    <ng-content select="[ngHscrollExtra]"></ng-content>
 </div>

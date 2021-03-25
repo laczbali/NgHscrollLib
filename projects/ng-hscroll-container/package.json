@@ -5,5 +5,10 @@
     "@angular/common": "^9.0.7",
     "@angular/core": "^9.0.7",
     "tslib": "^1.10.0"
+  },
+  "dependencies": {
+    "@angular/cdk": "^11.2.6",
+    "@fortawesome/fontawesome-free": "^5.15.2",
+    "bootstrap": "^4.6.0"
   }
 }

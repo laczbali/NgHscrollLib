@@ -1,7 +1,42 @@
-<div>
-  header
+<div class="header">
+  NgHscrollContainer Tester
 </div>
 
-<div>
-  <ng-hscroll-container></ng-hscroll-container>
+<div class="content">
+
+  <div class="howto">
+    [How to use]
+  </div>
+
+  <div class="buttons">
+    <button class="btn btn-sm btn-primary" (click)="showBtn2 = !showBtn2">
+      Toggle Button 2
+    </button>
+  </div>
+
+  <div class="main">
+
+    <ng-hscroll-container>
+      <button ngHscrollItem class="btn btn-sm btn-primary mr-2">button 1</button>
+      <button ngHscrollItem class="btn btn-sm btn-success mr-2" *ngIf="showBtn2">button 2</button>
+      <button ngHscrollItem class="btn btn-sm btn-primary mr-2">button 3</button>
+      <button ngHscrollItem class="btn btn-sm btn-primary mr-2">button 4</button>
+      <button ngHscrollItem class="btn btn-sm btn-primary mr-2">button 5</button>
+      <button ngHscrollItem class="btn btn-sm btn-primary">button 6</button>
+
+      <div ngHscrollExtra class="filler">
+        This is an optional field, for some extra space, if needed
+      </div>
+    </ng-hscroll-container>
+
+  </div>
+
+</div>
+
+<div class="footer">
+  <div>Description</div>
+  <div>
+    <span class="mylink">GitHub</span>
+    <span class="mylink">npm</span>
+  </div>
 </div>
