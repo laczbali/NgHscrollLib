@@ -14,10 +14,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-hscroll-container": ["projects/ng-hscroll-container/src"],
+      "ng-hscroll-container/*": ["projects/ng-hscroll-container/src/*"]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "strictInjectionParameters": true,
+    "enableIvy": false
   }
 }

@@ -1,0 +1,75 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            // Installs and updates npm packages configured in package.json, as necessary
+            "label": "{ node-install }",
+            "command": "npm install",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            // Publish the ng-hscroll-container library to npm
+            "label": "{ publish-lib }",
+            "command": "npm publish",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}\\dist\\ng-hscroll-container"
+            }
+        },
+        {
+            // Publish the ng-hscroll-container library to npm
+            "label": "{ version-increment }",
+            "command": "npm version ${input:versionType} --no-git-tag-version",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}\\${input:projectLoc}"
+            }
+        },
+        {
+            // Build the ng-hscroll-container library
+            "label": "{ build-lib-prod }",
+            "command": "ng build NgAdvancedSearch --prod",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            // Build the wrapper app
+            "label": "{ build-app }",
+            "command": "ng build --prod --build-optimizer=false --base-href=/git/ng-hscroll-container/",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+        {
+            // Start the Tester app in watch mode
+            "label": "{ start-app }",
+            "command": "ng serve",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            }
+        },
+    ],
+
+    "inputs": [
+        {
+            "id": "projectLoc",
+            "type": "pickString",
+            "description": "Project to increment version for",
+            "options": [ ".", "projects\\ng-hscroll-container"]
+        },
+        {
+            "id": "versionType",
+            "type": "pickString",
+            "description": "Type of version change",
+            "options": [ "patch", "minor", "major"],
+            "default": "patch"
+        }
+    ]
+}

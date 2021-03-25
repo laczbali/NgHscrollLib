@@ -2,7 +2,12 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [],
+    "baseUrl": "./",
+    "paths": {
+      "ng-hscroll-container": ["projects/ng-hscroll-container/src"],
+      "ng-hscroll-container/*": ["projects/ng-hscroll-container/src/*"]
+    }
   },
   "files": [
     "src/main.ts",
@@ -10,5 +15,9 @@
   ],
   "include": [
     "src/**/*.d.ts"
-  ]
+  ],
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+   ]
 }
